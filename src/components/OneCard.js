@@ -13,7 +13,7 @@ const Card = ({ card }) => {
 
     return (
         <div className="one-card" style={cardStyle}>
-            <Link to={`/card/${id}`} className="one-card-link"></Link>
+            <Link to={`/card/${id}`} className="one-card-link" title={`card #${id}`}></Link>
         </div>
     )
 }

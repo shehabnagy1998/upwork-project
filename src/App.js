@@ -6,7 +6,7 @@ import Cards from './components/Cards'
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <Switch>
           <Route path="/" exact component={Cards} />
         </Switch>
