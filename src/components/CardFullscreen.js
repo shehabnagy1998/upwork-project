@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setActive: () => { dispatch({ type: "SET_ACTIVE", value: false }) }
+        setActive: () => { dispatch({ type: "SET_ACTIVE", value: null }) }
     }
 }
 

@@ -23,6 +23,7 @@ class Cards extends Component {
                         return <OneCard card={card} key={card.id} />
                     })
                 }
+                <div className="overlay"></div>
             </div>
         )
     }

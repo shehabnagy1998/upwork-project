@@ -15,7 +15,7 @@ const generateArray = (nums, min, max, colors = rndColors) => {
 
 const initState = {
     cards: generateArray(30, 100, 300),
-    active: false
+    active: null
 }
 
 const rootReducer = (state = initState, action) => {

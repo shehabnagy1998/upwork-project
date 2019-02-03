@@ -12,12 +12,11 @@ class Card extends Component {
             'height': height,
             'width': width
         }
-
         return (
             <NavLink to={`/card/${id}`}
-                className={`one-card ${this.props.active ? "active" : null}`}
+                className={`one-card ${this.props.active === id ? "active" : null}`}
                 style={cardStyle}
-                onClick={this.props.setActive}
+                onClick={() => { this.props.setActive(id) }}
             >
             </NavLink>
         )
@@ -32,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setActive: () => { dispatch({ type: "SET_ACTIVE", value: true }) }
+        setActive: (id) => { dispatch({ type: "SET_ACTIVE", value: id }) }
     }
 }
 
