@@ -14,11 +14,19 @@ const generateArray = (nums, min, max, colors = rndColors) => {
 }
 
 const initState = {
-    cards: generateArray(30, 100, 300)
+    cards: generateArray(30, 100, 300),
+    active: false
 }
 
 const rootReducer = (state = initState, action) => {
-    return state
+    let newState = { ...state };
+    switch (action.type) {
+        case "SET_ACTIVE":
+            newState.active = action.value;
+            return newState
+        default:
+            return newState
+    }
 }
 
 export default rootReducer

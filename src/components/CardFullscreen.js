@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class CardFullscreen extends Component {
 
@@ -12,9 +12,11 @@ class CardFullscreen extends Component {
         }
 
         return (
-            <div className="card-fullscreen" style={cardStyle}>
-                <Link to={`/`} className="one-card-link"></Link>
-            </div>
+            <NavLink to={`/`}
+                onClick={this.props.setActive}
+                className="card-fullscreen"
+                style={cardStyle}>
+            </NavLink>
         )
     }
 }
@@ -22,8 +24,15 @@ class CardFullscreen extends Component {
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.id;
     return {
-        card: state.cards.find(card => (card.id).toString() === id)
+        card: state.cards.find(card => (card.id).toString() === id),
+        active: state.active
     }
 }
 
-export default connect(mapStateToProps)(CardFullscreen)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setActive: () => { dispatch({ type: "SET_ACTIVE", value: false }) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardFullscreen)

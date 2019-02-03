@@ -1,21 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const Card = ({ card }) => {
+class Card extends Component {
 
-    const { color, height, width, id } = card;
+    render() {
+        const { color, height, width, id } = this.props.card;
 
-    const cardStyle = {
-        'backgroundColor': color,
-        'height': height,
-        'width': width
+        const cardStyle = {
+            'backgroundColor': color,
+            'height': height,
+            'width': width
+        }
+
+        return (
+            <NavLink to={`/card/${id}`}
+                className={`one-card ${this.props.active ? "active" : null}`}
+                style={cardStyle}
+                onClick={this.props.setActive}
+            >
+            </NavLink>
+        )
     }
-
-    return (
-        <div className="one-card" style={cardStyle}>
-            <Link to={`/card/${id}`} className="one-card-link" title={`card #${id}`}></Link>
-        </div>
-    )
 }
 
-export default Card
+const mapStateToProps = (state, ownProps) => {
+    return {
+        active: state.active
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setActive: () => { dispatch({ type: "SET_ACTIVE", value: true }) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card)
