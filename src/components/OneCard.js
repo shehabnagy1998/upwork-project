@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 class Card extends Component {
+    static propTypes = {
+        card: PropTypes.shape({
+            id: PropTypes.number,
+            color: PropTypes.string,
+            height: PropTypes.number,
+            width: PropTypes.string,
+        }),
+        active: PropTypes.string,
+        setActive: PropTypes.func
+    }
 
     render() {
         const { color, height, width, id } = this.props.card;

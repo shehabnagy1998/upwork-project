@@ -10,7 +10,9 @@ class Cards extends Component {
             color: PropTypes.string,
             height: PropTypes.number,
             width: PropTypes.string
-        }))
+        })),
+        animation: PropTypes.string,
+        setAnim: PropTypes.func
     }
 
     render() {

@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class CardFullscreen extends Component {
+    static propTypes = {
+        card: PropTypes.shape({
+            id: PropTypes.number,
+            color: PropTypes.string,
+            height: PropTypes.number,
+            width: PropTypes.string,
+        }),
+        active: PropTypes.string,
+        setActive: PropTypes.func
+    }
 
     render() {
         const { color } = this.props.card;
