@@ -18,12 +18,12 @@ class Cards extends Component {
 
         return (
             <div className="card-system">
+                <div className="overlay"></div>
                 {
                     cards.map(card => {
                         return <OneCard card={card} key={card.id} />
                     })
                 }
-                <div className="overlay"></div>
             </div>
         )
     }
