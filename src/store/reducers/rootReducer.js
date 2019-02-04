@@ -15,14 +15,18 @@ const generateArray = (nums, min, max, colors = rndColors) => {
 
 const initState = {
     cards: generateArray(30, 100, 300),
-    active: null
+    active: null,
+    animation: "anim1"
 }
 
 const rootReducer = (state = initState, action) => {
     let newState = { ...state };
     switch (action.type) {
-        case "SET_ACTIVE":
+        case "SET_Active_ASYNC":
             newState.active = action.value;
+            return newState
+        case "SET_ANIMATION_ASYNC":
+            newState.animation = action.value;
             return newState
         default:
             return newState

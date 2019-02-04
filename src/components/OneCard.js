@@ -6,6 +6,7 @@ class Card extends Component {
 
     render() {
         const { color, height, width, id } = this.props.card;
+        const { setActive } = this.props
 
         const cardStyle = {
             'backgroundColor': color,
@@ -16,7 +17,7 @@ class Card extends Component {
             <NavLink to={`/card/${id}`}
                 className={`one-card ${this.props.active === id ? "active" : null}`}
                 style={cardStyle}
-                onClick={() => { this.props.setActive(id) }}
+                onClick={() => { setActive(id) }}
                 title={`card #${id}`}
             >
             </NavLink>

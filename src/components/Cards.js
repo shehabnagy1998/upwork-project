@@ -14,16 +14,37 @@ class Cards extends Component {
     }
 
     render() {
-        const { cards } = this.props;
+        const { cards, animation, setAnim } = this.props;
 
         return (
             <div className="card-system">
                 <div className="overlay"></div>
-                {
-                    cards.map(card => {
-                        return <OneCard card={card} key={card.id} />
-                    })
-                }
+                <div className="animation">
+                    <h1>Choose animation</h1>
+                    <form>
+                        <div>
+                            <label htmlFor="anim1">animation-1</label>
+                            <input type="radio"
+                                name="animation"
+                                defaultChecked={animation === "anim1"}
+                                onChange={() => { setAnim("anim1") }} />
+                        </div>
+                        <div>
+                            <label htmlFor="anim2">animation-2</label>
+                            <input type="radio"
+                                name="animation"
+                                defaultChecked={animation === "anim2"}
+                                onChange={() => { setAnim("anim2") }} />
+                        </div>
+                    </form>
+                </div>
+                <div className="cards">
+                    {
+                        cards.map(card => {
+                            return <OneCard card={card} key={card.id} />
+                        })
+                    }
+                </div>
             </div>
         )
     }
@@ -31,8 +52,15 @@ class Cards extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        cards: state.cards
+        cards: state.cards,
+        animation: state.animation
     }
 }
 
-export default connect(mapStateToProps)(Cards)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setAnim: (val) => { dispatch({ type: "SET_ANIMATION", value: val }) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cards)

@@ -4,9 +4,12 @@ import { Switch, Route } from 'react-router-dom'
 import Cards from './components/Cards'
 import CardFullscreen from './components/CardFullscreen';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
+    const { animation } = this.props;
+
     return (
       <Fragment>
         <Route render={({ location }) => (
@@ -14,7 +17,7 @@ class App extends Component {
             <CSSTransition
               key={location.key}
               timeout={1000}
-              classNames="fade"
+              classNames={animation}
             >
               <Switch location={location}>
                 <Route path="/" exact component={Cards} />
@@ -28,4 +31,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    animation: state.animation
+
+  }
+}
+
+export default connect(mapStateToProps)(App)
