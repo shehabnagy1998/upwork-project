@@ -16,7 +16,7 @@ class App extends Component {
           <TransitionGroup className="container">
             <CSSTransition
               key={location.key}
-              timeout={1000}
+              timeout={2000}
               classNames={animation}
             >
               <Switch location={location}>

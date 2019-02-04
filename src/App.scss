@@ -48,7 +48,7 @@ body {
         position: relative;
         page-break-inside: avoid;
         break-inside: avoid-column;
-        transition: .5s all;
+        transition: 1s all;
         z-index: 1;
 
         &:last-of-type {
@@ -88,7 +88,7 @@ body {
 
     a {
         &.active {
-            transform: scale(2);
+            transform: scale(3);
         }
 
         &:not(.active) {
@@ -105,24 +105,17 @@ body {
 .anim1-enter.anim1-enter-active {
 
     opacity: 1;
-    transition: .5s all linear .5s;
+    transition: 1s all linear 1s;
 
     a {
-        &.active {
-            transform: scale(1);
-        }
-
-        &:not(.active) {
-            transform: scale(1);
-        }
-
-        transition: .5s all linear .5s;
+        transform: scale(1);
+        transition: 1s all linear 1s;
     }
 
     .overlay {
         opacity: 0;
         z-index: 0;
-        transition: .5s all linear;
+        transition: 1s all linear;
     }
 }
 
@@ -131,13 +124,7 @@ body {
     opacity: 1;
 
     a {
-        &.active {
-            transform: scale(1);
-        }
-
-        &:not(.active) {
-            transform: scale(1);
-        }
+        transform: scale(1);
     }
 
     .overlay {
@@ -149,24 +136,24 @@ body {
 .anim1-exit.anim1-exit-active {
 
     opacity: 0;
-    transition: .5s all linear .5s;
+    transition: 1s all linear 1s;
 
     a {
         &.active {
-            transform: scale(2);
+            transform: scale(3);
         }
 
         &:not(.active) {
             transform: scale(.7);
         }
 
-        transition: .5s all linear .5s;
+        transition: 1s all linear 1s;
     }
 
     .overlay {
         opacity: 1;
         z-index: 2;
-        transition: .5s all linear;
+        transition: 1s all linear;
     }
 }
 
@@ -176,30 +163,29 @@ body {
     opacity: 0;
 
     a {
-        transform: scale(2);
+        transform: scale(3);
     }
 
     .overlay {
         opacity: 1;
-        z-index: 2;
+        z-index: 3;
     }
 }
 
 .anim2-enter.anim2-enter-active {
 
     opacity: 1;
-    transition: .5s all linear .5s;
+    transition: 1s all linear 1s;
 
     a {
         transform: scale(1);
-
-        transition: .5s all linear .5s;
+        transition: 1s all linear 1s;
     }
 
     .overlay {
         opacity: 0;
         z-index: 0;
-        transition: .5s all linear;
+        transition: 1s all linear;
     }
 }
 
@@ -213,24 +199,23 @@ body {
 
     .overlay {
         opacity: 0;
-        z-index: 2;
+        z-index: 3;
     }
 }
 
 .anim2-exit.anim2-exit-active {
 
     opacity: 0;
-    transition: .5s all linear .5s;
+    transition: 1s all linear 1s;
 
     a {
-        transform: scale(2);
-
-        transition: .5s all linear .5s;
+        transform: scale(3);
+        transition: 1s all linear 1s;
     }
 
     .overlay {
         opacity: 1;
-        z-index: 2;
-        transition: .5s all linear;
+        z-index: 3;
+        transition: 1s all linear;
     }
 }
