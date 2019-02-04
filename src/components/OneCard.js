@@ -17,6 +17,7 @@ class Card extends Component {
                 className={`one-card ${this.props.active === id ? "active" : null}`}
                 style={cardStyle}
                 onClick={() => { this.props.setActive(id) }}
+                title={`card #${id}`}
             >
             </NavLink>
         )
