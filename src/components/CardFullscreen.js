@@ -11,7 +11,7 @@ class CardFullscreen extends Component {
             height: PropTypes.number,
             width: PropTypes.string,
         }),
-        active: PropTypes.string,
+        active: PropTypes.number,
         setActive: PropTypes.func
     }
 

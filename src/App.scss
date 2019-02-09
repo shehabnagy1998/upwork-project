@@ -10,13 +10,12 @@ body {
 
 .container {
     position: relative;
-    width: 85vw;
-    height: 90vh;
-    margin: 5vh auto 0;
 }
 
 .card-system {
     position: absolute;
+    width: 100%;
+    margin-top: 3vh;
 
     .animation {
         position: relative;
@@ -37,19 +36,20 @@ body {
     }
 
     .cards {
-        column-count: 6;
         column-width: 200px;
-        column-gap: 20px;
+        column-gap: 3vw;
+        margin: 0 auto;
+        width: 90%;
     }
 
     .one-card {
         display: block;
-        margin: 0 auto 20px;
+        margin: 0 auto 3vh;
         position: relative;
-        page-break-inside: avoid;
-        break-inside: avoid-column;
         transition: 1s all;
         z-index: 1;
+        // page-break-inside: avoid;
+        break-inside: avoid-column;
 
         &:last-of-type {
             margin-bottom: 0;
