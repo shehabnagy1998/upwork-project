@@ -80,6 +80,15 @@ body {
     opacity: 0;
 }
 
+/* page landing animation */
+.zoomIn-appear {
+    transform: scale(0);
+    transition: 1s all;
+
+    &.zoomIn-appear-active {
+        transform: scale(1)
+    }
+}
 
 /* animation one */
 .anim1-enter {

@@ -9,6 +9,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import rootReducer from './store/reducers/rootReducer';
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './store/sagas/rootSaga';
+import { CSSTransition } from 'react-transition-group'
 
 const saga = createSagaMiddleware()
 const store = createStore(rootReducer, applyMiddleware(saga));
@@ -17,7 +18,13 @@ saga.run(rootSaga);
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <Route path="/" component={App} />
+            <CSSTransition
+                in={true}
+                appear={true}
+                timeout={1000}
+                classNames="zoomIn">
+                <Route path="/" component={App} />
+            </CSSTransition>
         </BrowserRouter>
     </Provider>
     , document.getElementById('root'));
